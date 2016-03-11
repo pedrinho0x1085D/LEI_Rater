@@ -9,58 +9,59 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="android.com.pedrojose.rater.activities.MainMenuAct">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recolha de Dados"
-        android:id="@+id/button3"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Avaliação"
-        android:id="@+id/button9"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="73dp"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="238dp"
+            android:text="Recolha de Dados"
+            android:drawableTop="@drawable/road"
+            android:onClick="loggerPreStart"
+            android:textSize="30sp"
+            android:fontFamily="droid"
+            android:textStyle="bold"
+            android:id="@+id/button3"
+            android:layout_gravity="left|top" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mapa"
-        android:id="@+id/button10"
-        android:layout_above="@+id/button11"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="81dp"
-        android:layout_alignRight="@+id/button9"
-        android:layout_alignEnd="@+id/button9" />
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="240dp"
+            android:drawableTop="@drawable/eval"
+            android:text="Avaliação &amp; Mapa"
+            android:textSize="26sp"
+            android:fontFamily="droid"
+            android:textStyle="bold"
+            android:id="@+id/button9"
+            android:onClick="eval"
+            android:layout_gravity="right|top" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Conta"
-        android:id="@+id/button11"
-        android:layout_above="@+id/button12"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/button12"
-        android:layout_alignRight="@+id/button10"
-        android:layout_alignEnd="@+id/button10" />
+        <Button
+            android:layout_width="182dp"
+            android:layout_height="241dp"
+            android:text="Conta"
+            android:drawableTop="@drawable/configuser"
+            android:textSize="40sp"
+            android:fontFamily="droid"
+            android:textStyle="bold"
+            android:id="@+id/button11"
+            android:onClick="accSettings"
+            android:layout_gravity="left|bottom" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Terminar Sessão"
-        android:id="@+id/button12"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
+        <Button
+            android:layout_width="169dp"
+            android:layout_height="240dp"
+            android:text="Terminar Sessão"
+            android:textSize="28sp"
+            android:drawableTop="@drawable/exit"
+            android:onClick="logout"
+            android:fontFamily="droid"
+            android:textStyle="bold"
+            android:id="@+id/button13"
+            android:layout_gravity="right|bottom" />
+    </FrameLayout>
 </RelativeLayout>

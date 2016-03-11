@@ -3,8 +3,6 @@ package android.com.pedrojose.rater.business;
 /**
  * Created by PedroJosé on 10/03/2016.
  */
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 
 import java.io.Serializable;
 import java.util.GregorianCalendar;

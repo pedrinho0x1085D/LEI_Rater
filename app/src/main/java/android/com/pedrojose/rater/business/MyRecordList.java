@@ -3,9 +3,11 @@ package android.com.pedrojose.rater.business;
 /**
  * Created by PedroJosé on 10/03/2016.
  */
-import com.fasterxml.jackson.databind.ObjectMapper;
+/*import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.fasterxml.jackson.databind.type.TypeFactory;*/
+
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -62,22 +64,13 @@ public class MyRecordList implements Serializable {
         }
         return new MyRecordList();
     }
-    public String toJSonString() throws Exception {
-        ObjectWriter jsonWriter = new ObjectMapper().writer();
-        return jsonWriter.writeValueAsString(this.records);
+    public String toJSonString(){
+        Gson gson=new Gson();
+        return gson.toJson(this);
     }
 
-    public static MyRecordList JSonToObj(String json) throws IOException {
-        MyRecordList mrl = new MyRecordList();
-        ObjectMapper mapper = new ObjectMapper();
-        List<MyRecord> lista;
-        lista = mapper.readValue(json, TypeFactory.defaultInstance().constructCollectionType(List.class,
-                MyRecord.class));
-        ArrayList<MyRecord> list = new ArrayList<>();
-        for(MyRecord mr:lista)
-            list.add(mr);
-        mrl.setRecords(list);
-
-        return mrl;
+    public static MyRecordList fromJSonString(String json) throws Exception {
+        Gson gson=new Gson();
+        return (MyRecordList) gson.fromJson(json,MyRecordList.class);
     }
 }
