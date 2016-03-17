@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 
 public class ExistingUserAct extends AppCompatActivity {
     UserMap um;
-    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,15 +27,16 @@ public class ExistingUserAct extends AppCompatActivity {
             um = new UserMap();
             um.saveToFile(UserDBFile());
         }
-        ArrayList<String> userNames=um.getUsers();
-        ArrayAdapter<String> adapter=new ArrayAdapter<>(this, R.layout.list_row,userNames);
-        lv=(ListView) findViewById(R.id.listView);
-        lv.setAdapter(adapter);
+
+
+
     }
 
     public void enter(View v){
         try{
-            User u=getUserFromList();
+            EditText text=(EditText)findViewById(R.id.editText5);
+            String name=text.getText().toString();
+            User u=um.getUser(name);
             Intent intent=new Intent(ExistingUserAct.this,MainMenuAct.class);
             intent.putExtra("user",u);
             startActivity(intent);
@@ -52,11 +53,6 @@ public class ExistingUserAct extends AppCompatActivity {
         finish();
     }
 
-    private User getUserFromList() throws Exception{
-        String str=(String) lv.getSelectedItem();
-        str.isEmpty();
-        return um.getUser(str);
-    }
 
     private String UserDBFile() {
         File folder = new File(getFilesDir()

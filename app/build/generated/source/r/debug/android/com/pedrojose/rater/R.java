@@ -1653,6 +1653,7 @@ containing a value of this type.
         public static final int editText2=0x7f0c005c;
         public static final int editText3=0x7f0c005e;
         public static final int editText4=0x7f0c0060;
+        public static final int editText5=0x7f0c0052;
         public static final int edit_query=0x7f0c0043;
         public static final int end=0x7f0c0019;
         public static final int end_padder=0x7f0c0075;
@@ -1668,7 +1669,6 @@ containing a value of this type.
         public static final int line1=0x7f0c006e;
         public static final int line3=0x7f0c0072;
         public static final int listMode=0x7f0c0009;
-        public static final int listView=0x7f0c0052;
         public static final int list_item=0x7f0c0028;
         public static final int media_actions=0x7f0c006c;
         public static final int middle=0x7f0c001a;

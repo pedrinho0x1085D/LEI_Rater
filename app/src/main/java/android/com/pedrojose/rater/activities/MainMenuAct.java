@@ -20,27 +20,30 @@ public class MainMenuAct extends AppCompatActivity {
         File unsRecs = new File(pathToUnsavedRecords());
         if (unsRecs.exists()) {
             //Carregar Para estrutura temporária; Perguntar se pretende guardar ou descartar o ficheiro temporário.
+
         }
 
         // Verificar estado de rede e se existem ficheiros de dados. If sim então Dialog...
 
     }
-    public void loggerPreStart(View view){
+
+    public void loggerPreStart(View view) {
 
     }
 
-    public void logout(View view){
-        Intent intent=new Intent(this,DialogLogout.class);
+    public void logout(View view) {
+        Intent intent = new Intent(MainMenuAct.this, DialogLogout.class);
+        startActivity(intent);
+    }
+
+    public void accSettings(View view) {
 
     }
 
-    public void accSettings(View view){
+    public void eval(View view) {
 
     }
 
-    public void eval(View view){
-
-    }
     public String pathToUnsavedRecords() {
         File folder = new File(getFilesDir()
                 + File.separator + "RaterTMPFiles");
@@ -51,24 +54,12 @@ public class MainMenuAct extends AppCompatActivity {
         return filename;
     }
 
-    public boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
+    public File pathToRecordFolder() {
+
+        File folder = new File(getFilesDir()
+                + File.separator + "RaterTMPFiles"+ File.separator +"dadosLogging");
+        return folder;
     }
 
-    public File pathToRecordFolder() {
-        if (isExternalStorageWritable()) {
-            File folder = new File(Environment.getExternalStorageDirectory()
-                    + File.separator + "dadosLogging");
-            return folder;
-        } else {
-            File folder = new File(getFilesDir()
-                    + File.separator + "dadosLogging");
-            return folder;
-        }
-    }
 
 }
