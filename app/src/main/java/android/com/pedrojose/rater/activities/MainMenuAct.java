@@ -17,27 +17,28 @@ public class MainMenuAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        File unsRecs = new File(pathToUnsavedRecords());
-        if (unsRecs.exists()) {
-            //Carregar Para estrutura temporária; Perguntar se pretende guardar ou descartar o ficheiro temporário.
-
-        }
-
-        // Verificar estado de rede e se existem ficheiros de dados. If sim então Dialog...
-
+        Bundle b = getIntent().getExtras();
+        this.u = (User) b.get("user");
     }
 
     public void loggerPreStart(View view) {
-
+        Intent intent=new Intent(MainMenuAct.this, PreStartRecording.class);
+        intent.putExtra("user",u);
+        startActivity(intent);
+        finish();
     }
 
     public void logout(View view) {
-        Intent intent = new Intent(MainMenuAct.this, DialogLogout.class);
+        Intent intent = new Intent(MainMenuAct.this, LoginAct.class);
         startActivity(intent);
+        finish();
     }
 
     public void accSettings(View view) {
-
+        Intent intent = new Intent(MainMenuAct.this,AccountSettings.class);
+        intent.putExtra("user",u);
+        startActivity(intent);
+        finish();
     }
 
     public void eval(View view) {
@@ -57,7 +58,7 @@ public class MainMenuAct extends AppCompatActivity {
     public File pathToRecordFolder() {
 
         File folder = new File(getFilesDir()
-                + File.separator + "RaterTMPFiles"+ File.separator +"dadosLogging");
+                + File.separator + "RaterTMPFiles" + File.separator + "dadosLogging");
         return folder;
     }
 

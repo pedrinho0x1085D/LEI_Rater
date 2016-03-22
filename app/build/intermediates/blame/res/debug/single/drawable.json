@@ -4,16 +4,20 @@
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_dialog_material_background_dark.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\exit.png",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\exit.png"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\left.png",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\left.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\menos.png",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\menos.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
@@ -104,6 +108,10 @@
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mais.png",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\mais.png"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
@@ -118,6 +126,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\save.png",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\save.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
