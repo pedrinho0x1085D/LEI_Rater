@@ -75,4 +75,7 @@ public class RecordMap {
         File f=new File(filename);
         f.delete();
     }
+    public boolean hasRecords(){
+        return this.mapa.size()>0;
+    }
 }

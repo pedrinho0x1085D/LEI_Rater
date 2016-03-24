@@ -92,7 +92,7 @@ public class NewUserAct extends AppCompatActivity {
             finish();
         }
         catch(Exception e ){
-            Toast.makeText(this,"Reveja os dados,",Toast.LENGTH_SHORT).show();
+            Toast.makeText(NewUserAct.this,"Reveja os dados,",Toast.LENGTH_SHORT).show();
         }
     }
 }

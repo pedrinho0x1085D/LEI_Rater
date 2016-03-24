@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:2:1-2
 		INJECTED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml
 		INJECTED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:5:5-22:19
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:5:5-29:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] D:\AndroidStudioProjects\Rater\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] D:\AndroidStudioProjects\Rater\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 	android:label
@@ -27,36 +27,60 @@ MERGED from [com.android.support:support-v4:23.1.1] D:\AndroidStudioProjects\Rat
 		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:7:9-43
 	android:theme
 		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:10:9-40
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:11:9-83
+	android:name
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:11:26-80
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:12:9-85
+	android:name
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:12:26-82
+uses-permission#android.permission.INTERNET
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:13:9-71
+	android:name
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:13:26-68
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:14:9-83
+	android:name
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:14:26-80
 activity#android.com.pedrojose.rater.activities.LoginAct
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:11:9-17:20
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:16:9-22:20
 	android:name
-		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:11:19-54
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:16:19-54
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:12:13-16:29
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:13:17-69
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:13:25-66
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:15:17-77
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:15:27-74
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:20:27-74
 activity#android.com.pedrojose.rater.activities.NewUserAct
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:18:9-59
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:23:9-59
 	android:name
-		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:18:19-56
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:23:19-56
 activity#android.com.pedrojose.rater.activities.ExistingUserAct
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:19:9-64
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:24:9-64
 	android:name
-		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:19:19-61
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:24:19-61
 activity#android.com.pedrojose.rater.activities.MainMenuAct
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:20:9-60
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:25:9-60
 	android:name
-		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:20:19-57
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:25:19-57
 activity#android.com.pedrojose.rater.activities.AccountSettings
-ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:21:9-73
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:26:9-64
 	android:name
-		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:21:19-61
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:26:19-61
+activity#android.com.pedrojose.rater.activities.PreStartRecording
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:27:9-66
+	android:name
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:27:19-63
+activity#android.com.pedrojose.rater.activities.EvalPreStart
+ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:28:9-70
+	android:name
+		ADDED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml:28:19-58
 uses-sdk
 INJECTED from D:\AndroidStudioProjects\Rater\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] D:\AndroidStudioProjects\Rater\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:20:5-43

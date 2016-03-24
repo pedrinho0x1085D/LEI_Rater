@@ -25,7 +25,6 @@
         android:text="Iniciar Caminhada"
         android:textSize="20sp"
         android:fontFamily="droid"
-        android:onClick="startWalk"
         android:textStyle="bold"
         android:id="@+id/button20"
         android:layout_below="@+id/textView9"
@@ -38,7 +37,6 @@
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/running"
         android:text="Iniciar Corrida"
-        android:onClick="startRace"
         android:textSize="20sp"
         android:fontFamily="droid"
         android:textStyle="bold"
@@ -58,7 +56,6 @@
         android:fontFamily="droid"
         android:textStyle="bold"
         android:id="@+id/button22"
-        android:onClick="synchronize"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

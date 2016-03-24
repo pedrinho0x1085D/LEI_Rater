@@ -43,7 +43,7 @@ public class ExistingUserAct extends AppCompatActivity {
             finish();
         }
         catch(Exception e){
-            Toast.makeText(this,"Selecione um utilizador",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ExistingUserAct.this,"Selecione um utilizador",Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -95,6 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button14"
+        android:onClick="lessHeight"
         android:drawableRight="@drawable/menos"
         android:layout_alignBottom="@+id/textView7"
         android:layout_toStartOf="@+id/textView8"
@@ -106,6 +107,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button15"
         android:drawableLeft="@drawable/mais"
+        android:onClick="plusHeight"
         android:layout_alignBottom="@+id/textView7"
         android:layout_alignRight="@+id/button12"
         android:layout_alignEnd="@+id/button12"
@@ -117,6 +119,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button16"
         android:drawableRight="@drawable/menos"
+        android:onClick="lessWeight"
         android:layout_above="@+id/checkBox3"
         android:layout_alignRight="@+id/button14"
         android:layout_alignEnd="@+id/button14" />
@@ -126,6 +129,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/mais"
         android:id="@+id/button17"
+        android:onClick="plusWeight"
         android:layout_above="@+id/checkBox3"
         android:layout_alignLeft="@+id/button15"
         android:layout_alignStart="@+id/button15" />

@@ -40,6 +40,10 @@
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_eval_pre_start.xml",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\layout\\activity_eval_pre_start.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_media_action.xml"
     },
@@ -58,6 +62,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pre_start_recording.xml",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\layout\\activity_pre_start_recording.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",

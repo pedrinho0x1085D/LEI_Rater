@@ -42,24 +42,10 @@ public class MainMenuAct extends AppCompatActivity {
     }
 
     public void eval(View view) {
-
-    }
-
-    public String pathToUnsavedRecords() {
-        File folder = new File(getFilesDir()
-                + File.separator + "RaterTMPFiles");
-        boolean var = false;
-        if (!folder.exists())
-            var = folder.mkdir();
-        final String filename = folder.toString() + File.separator + "records.tmp";
-        return filename;
-    }
-
-    public File pathToRecordFolder() {
-
-        File folder = new File(getFilesDir()
-                + File.separator + "RaterTMPFiles" + File.separator + "dadosLogging");
-        return folder;
+        Intent intent = new Intent(MainMenuAct.this,EvalPreStart.class);
+        intent.putExtra("user",u);
+        startActivity(intent);
+        finish();
     }
 
 
