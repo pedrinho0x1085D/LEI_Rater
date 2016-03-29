@@ -61,6 +61,7 @@ public class NewUserAct extends AppCompatActivity {
         return new User(name,age,weight,height,hasSportHist,hasWalkHist,gen);
     }
 
+
     public void clear(View view){
         EditText nome=(EditText)findViewById(R.id.editText);
         EditText idade=(EditText)findViewById(R.id.editText2);
