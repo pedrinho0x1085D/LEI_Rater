@@ -8,12 +8,12 @@
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\running.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\exit.png",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\exit.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\left.png",
@@ -72,6 +72,10 @@
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\travel.png",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\travel.png"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_dialog_material_background_light.xml"
     },
@@ -90,6 +94,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\users.png",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\users.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\flag.png",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\flag.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",

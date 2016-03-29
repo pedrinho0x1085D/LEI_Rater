@@ -1,9 +1,20 @@
 package android.com.pedrojose.rater.activities;
 
+import android.app.Activity;
 import android.com.pedrojose.rater.R;
+import android.com.pedrojose.rater.business.MyRecord;
+import android.com.pedrojose.rater.business.MyRecordList;
+import org.apache.http.*;
+import org.apache.http.client.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.entity.*;
+import org.apache.http.impl.client.*;
 import android.com.pedrojose.rater.business.RecordMap;
 import android.com.pedrojose.rater.business.User;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +22,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class PreStartRecording extends AppCompatActivity {
     User u;
@@ -24,21 +42,37 @@ public class PreStartRecording extends AppCompatActivity {
         if(new File(pathToUnsavedRecords()).exists()){
             try {
                 RecordMap rm = RecordMap.readFromObj(pathToUnsavedRecords());
-                rm.writeToObjFile(pathToRecordFolder().toString() + File.separator + rm.getFirstRecord().simpleTextDateTime() + rm.getFirstRecord().getUser().getName().replaceAll(" ", "") + ".csv");
-
+                ArrayList<String> data= rm.CSVFormat();
+                writeToCSV(rm,data);
             }catch (Exception e){} finally {
                 new File(pathToUnsavedRecords()).delete();
             }
         }
-        if(pathToRecordFolder().listFiles()==null){
-            Button sync=(Button) findViewById(R.id.button22);
-            sync.setClickable(false);
-        }
-        else{
+        if(pathToRecordFolder().listFiles()!=null && isConnected()){
             Button sync=(Button) findViewById(R.id.button22);
             sync.setClickable(true);
         }
+        else{
+            Button sync=(Button) findViewById(R.id.button22);
+            sync.setClickable(false);
+        }
 
+    }
+
+    public void writeToCSV(RecordMap rm, ArrayList<String> list) throws IOException {
+        if (rm.hasRecords()) {
+            File folder = new File(getFilesDir()
+                    + File.separator +"RaterTMPFiles"+File.separator+ "dadosLogging");
+            boolean var = false;
+            if (!folder.exists())
+                var = folder.mkdir();
+            final String filename = folder.toString() + File.separator + rm.getFirstRecord().simpleTextDateTime() + rm.getFirstRecord().getUser().getName().replaceAll(" ", "") + ".csv";
+            FileWriter fw = new FileWriter(filename);
+            for (String str : list)
+                fw.write(str);
+            fw.flush();
+            fw.close();
+        }
     }
 
     public File pathToRecordFolder() {
@@ -50,6 +84,54 @@ public class PreStartRecording extends AppCompatActivity {
 
     public void synchronize(View view){
         // TODO... Criar cliente de http e pegar em todos os ficheiros
+       File[] files = pathToRecordFolder().listFiles();
+
+        if(files!=null) {
+            for (File file : files) {
+                if (file.getName().endsWith(".csv")) {
+                    MyRecordList mrl = MyRecordList.getRecordsFromCSVFile(file.getAbsolutePath());
+                    AsyncTask<MyRecordList,Void,String> task=new HttpAsyncTask().execute(mrl);
+                    try{
+                        String string=task.get();
+                        if(string.equals("ok"))
+                            file.delete();
+                    }catch (Exception e){
+
+                    }
+                }
+            }
+        }
+    }
+
+    public static String POST(String url, MyRecordList mrl){
+        InputStream is=null;
+        String result = "";
+        try{
+            HttpClient client=new DefaultHttpClient();
+            HttpPost httpPost= new HttpPost(url);
+            String json=mrl.toJSonString();
+            StringEntity se= new StringEntity(json);
+            httpPost.setEntity(se);
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            HttpResponse httpResponse = client.execute(httpPost);
+            is=httpResponse.getEntity().getContent();
+            if(is!=null){
+                result=convertInputStreamToString(is);
+            }
+            else result="Oops! Something went wrong";
+        }
+        catch(Exception e){}
+        return result;
+    }
+
+    public boolean isConnected(){
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected())
+            return true;
+        else
+            return false;
     }
 
     public void backMain(View view){
@@ -96,5 +178,28 @@ public class PreStartRecording extends AppCompatActivity {
             var = folder.mkdir();
         final String filename = folder.toString() + File.separator + "records.tmp";
         return filename;
+    }
+    private static String convertInputStreamToString(InputStream inputStream) throws IOException{
+        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
+        String line = "";
+        String result = "";
+        while((line = bufferedReader.readLine()) != null)
+            result += line;
+
+        inputStream.close();
+        return result;
+
+    }
+    class HttpAsyncTask extends AsyncTask<MyRecordList,Void,String>{
+
+        @Override
+        protected String doInBackground(MyRecordList... params) {
+            String url="";
+            return POST(url,params[0]);
+        }
+
+        protected void onPostExecute(String str){
+            Toast.makeText(getBaseContext(), "Dados Enviados", Toast.LENGTH_SHORT).show();
+        }
     }
 }

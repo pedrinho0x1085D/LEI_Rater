@@ -74,11 +74,24 @@ public class Logger extends AppCompatActivity {
         updateLoad();
     }
 
+    public String pathToUnsavedRecords() {
+        File folder = new File(getFilesDir()
+                + File.separator + "RaterTMPFiles");
+        boolean var = false;
+        if (!folder.exists())
+            var = folder.mkdir();
+        final String filename = folder.toString() + File.separator + "records.tmp";
+        return filename;
+    }
+
     public void endLogging(View view) {
         lll.removeRequest();
         ArrayList<String> data = this.records.CSVFormat();
         try {
             writeToCSV(data);
+            File fp=new File(pathToUnsavedRecords());
+            if(fp.exists())
+                fp.delete();
         } catch (Exception e) {
         }
         Intent intent = new Intent(Logger.this, PreStartRecording.class);
@@ -91,7 +104,7 @@ public class Logger extends AppCompatActivity {
     public void writeToCSV(ArrayList<String> list) throws IOException {
         if (this.records.hasRecords()) {
             File folder = new File(getFilesDir()
-                    + File.separator + "dadosLogging");
+                    + File.separator +"RaterTMPFiles"+File.separator+ "dadosLogging");
             boolean var = false;
             if (!folder.exists())
                 var = folder.mkdir();
