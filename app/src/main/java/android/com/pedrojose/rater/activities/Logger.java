@@ -33,11 +33,6 @@ public class Logger extends AppCompatActivity {
         this.modal = b.getString("modal");
         this.carga = b.getInt("load");
         this.records = new RecordMap();
-        TextView textView = (TextView) findViewById(R.id.textView12);
-        textView.setText(modal);
-        if (modal.equals("Caminhada"))
-            textView.setCompoundDrawables(getDrawable(R.drawable.caminhada), null, null, null);
-        else textView.setCompoundDrawables(getDrawable(R.drawable.running), null, null, null);
         updateLoad();
     }
 
@@ -46,7 +41,7 @@ public class Logger extends AppCompatActivity {
         carga.setText(this.carga + "");
     }
 
-    public void updateLabels(double lat, double lon, double al, float currSpeed, int totalDist, int accumSub, int accumDesc) {
+    public void updateLabels(double lat, double lon, double al, float currSpeed, int totalDist) {
         TextView latitude = (TextView) findViewById(R.id.textView17);
         latitude.setText(lat + "");
         TextView longitude = (TextView) findViewById(R.id.textView19);
@@ -55,10 +50,6 @@ public class Logger extends AppCompatActivity {
         altitude.setText(al + "");
         TextView totDist = (TextView) findViewById(R.id.textView23);
         totDist.setText(totalDist + "");
-        TextView distSub = (TextView) findViewById(R.id.textView25);
-        distSub.setText(accumSub + "");
-        TextView distDesc = (TextView) findViewById(R.id.textView27);
-        distDesc.setText(accumDesc + "");
         TextView currSpd = (TextView) findViewById(R.id.textView29);
         currSpd.setText(currSpeed + "");
     }

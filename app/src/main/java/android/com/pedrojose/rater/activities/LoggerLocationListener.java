@@ -70,7 +70,7 @@ public class LoggerLocationListener implements LocationListener {
                 distDescida += starting.distanceTo(location);
             totDistance += starting.distanceTo(location);
             records.addRecord(new Record(starting, location, media, location.getSpeed(), distSubida, distDescida, totDistance, logger.getDiffic(), this.user, logger.getCarga(), modal));
-            this.logger.updateLabels(location.getLatitude(), location.getLongitude(), location.getAltitude(), location.getSpeed(), totDistance, distSubida, distDescida);
+            this.logger.updateLabels(location.getLatitude(), location.getLongitude(), location.getAltitude(), location.getSpeed(), totDistance);
             if (leituras % 7 == 0) {
                 try {
                     records.writeToObjFile(pathToUnsavedRecords());

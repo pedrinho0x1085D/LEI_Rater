@@ -194,7 +194,7 @@ public class PreStartRecording extends AppCompatActivity {
 
         @Override
         protected String doInBackground(MyRecordList... params) {
-            String url="";
+            String url="https://section-records.herokuapp.com/insert";
             return POST(url,params[0]);
         }
 
