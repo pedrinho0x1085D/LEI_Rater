@@ -7,10 +7,15 @@ import android.os.Bundle;
 
 public class EvalPreStart extends AppCompatActivity {
     User u;
+    int carga;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eval_pre_start);
-
+        Bundle b = getIntent().getExtras();
+        this.u = (User) b.get("user");
+        carga=0;
     }
+
+
 }
