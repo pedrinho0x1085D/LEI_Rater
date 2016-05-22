@@ -83,6 +83,8 @@ public class User implements Serializable{
         return hasWalkingHistoric;
     }
 
+
+
     public int getAge() {
         return age;
     }
