@@ -1,25 +1,56 @@
 package android.com.pedrojose.rater.activities;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+
+import android.app.TimePickerDialog;
 import android.com.pedrojose.rater.R;
+import android.com.pedrojose.rater.business.GPXInstance;
+import android.com.pedrojose.rater.business.GpxParser;
+import android.com.pedrojose.rater.business.MyRecordList;
+import android.com.pedrojose.rater.business.RaterReply;
+import android.com.pedrojose.rater.business.RaterRequest;
+import android.com.pedrojose.rater.business.TrkPt;
 import android.com.pedrojose.rater.business.User;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class EvalPreStart extends AppCompatActivity {
     User u;
     int carga;
     int dia, mes, hora, minuto;
+
+    ListView gpx = (ListView)findViewById(R.id.listView2);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +61,9 @@ public class EvalPreStart extends AppCompatActivity {
         fillListOfGPXs();
         dia = mes = hora = minuto = -909;
     }
-    public void enableQButton(){
+    public void enableQButton(boolean vis){
         Button butt = (Button)findViewById(R.id.button24);
-        butt.setClickable(true);
+        butt.setClickable(vis);
     }
 
     public boolean isQueryValid(){
@@ -41,9 +72,7 @@ public class EvalPreStart extends AppCompatActivity {
         if(mes == -909) flag = false;
         if(hora == -909) flag = false;
         if(minuto== -909) flag = false;
-        ListView gpx = (ListView)findViewById(R.id.listView);
-
-        return flag && gpx.getSelectedItem()!=null;
+        return flag;
     }
 
     public void setHoraMinuto(int hora,int minuto){
@@ -51,12 +80,14 @@ public class EvalPreStart extends AppCompatActivity {
         this.minuto = minuto;
         Button setTime = (Button)findViewById(R.id.button35);
         setTime.setText(hora+":"+minuto);
+        if(isQueryValid()) enableQButton(true);
     }
     public void setDiaMes(int dia,int mes){
         this.dia = dia;
         this.mes = mes;
         Button setDate = (Button)findViewById(R.id.button25);
         setDate.setText(dia +"/"+mes);
+        if(isQueryValid()) enableQButton(true);
     }
 
     public void updateCarga(){
@@ -64,7 +95,7 @@ public class EvalPreStart extends AppCompatActivity {
         cargaV.setText(carga + "");
     }
     public void fillListOfGPXs(){
-        ListView gpx = (ListView)findViewById(R.id.listView);
+        ListView gpx = (ListView)findViewById(R.id.listView2);
         File folder = new File(pathToGPXFolder());
         File[] gpxs=folder.listFiles();
         if(gpxs !=null){
@@ -75,6 +106,7 @@ public class EvalPreStart extends AppCompatActivity {
                 }
                 ArrayAdapter<String> readytogo= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,nomesFich);
                 gpx.setAdapter(readytogo);
+
             }
             else {
                 Toast.makeText(EvalPreStart.this, "Nenhum Ficheiro GPX encontrado.\n Coloque ficheiros GPX na pasta /RaterTMPFiles/GPX", Toast.LENGTH_LONG).show();
@@ -109,10 +141,14 @@ public class EvalPreStart extends AppCompatActivity {
 
     public void openDatePickerDialog(View v){
         // Ver https://developer.android.com/guide/topics/ui/controls/pickers.html
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     public void openTimePickerDialog(View v){
         // Ver https://developer.android.com/guide/topics/ui/controls/pickers.html
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
     public void back2Home(View vieu){
@@ -120,5 +156,125 @@ public class EvalPreStart extends AppCompatActivity {
         intent.putExtra("user",u);
         startActivity(intent);
         finish();
+    }
+    public static class TimePickerFragment extends DialogFragment
+            implements TimePickerDialog.OnTimeSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current time as the default values for the picker
+            final Calendar c = Calendar.getInstance();
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            // Create a new instance of TimePickerDialog and return it
+            return new TimePickerDialog(getActivity(), this, hour, minute,
+                    DateFormat.is24HourFormat(getActivity()));
+        }
+
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            // Do something with the time chosen by the user
+            EvalPreStart act = (EvalPreStart)getActivity();
+            act.setHoraMinuto(hourOfDay, minute);
+            //this.dismiss(); //if needed uncomment line
+        }
+    }
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+            final Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance of DatePickerDialog and return it
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            // Do something with the date chosen by the user
+            EvalPreStart act = (EvalPreStart)getActivity();
+            act.setDiaMes(day,month);
+            //this.dismiss(); //if needed uncomment line
+        }
+    }
+
+    public void sendQuery(View view){
+        if(gpx.getSelectedItem()== null){
+            Toast.makeText(EvalPreStart.this, "Selecione um Ficheiro", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            File GPXToSend = new File(pathToGPXFolder()+gpx.getSelectedItem().toString());
+            if (GPXToSend.exists()){
+                try{
+                    enableQButton(false);
+                    ArrayList<GPXInstance> points= new ArrayList<>();
+                    GpxParser parser = new GpxParser(new FileInputStream(GPXToSend));
+                    TrkPt point = null;
+                    while((point = parser.nextTrkPt()) != null){
+                        GPXInstance inst = new GPXInstance(point.getLat(),point.getLon(), point.getEle());
+                        points.add(inst);
+                    }
+                    RaterRequest rrq = new RaterRequest(points,carga,u,new GregorianCalendar(2016,mes-1,dia,hora,minuto));
+                    new HttpAsyncTask().execute(rrq);
+
+                }
+                catch (Exception e){Toast.makeText(EvalPreStart.this, "Erro de Disco", Toast.LENGTH_SHORT).show();}
+            }
+            else Toast.makeText(EvalPreStart.this, "Erro de Disco", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public static String POST(String url, RaterRequest mrl){
+        InputStream is=null;
+        String result = "";
+        try{
+            HttpClient client=new DefaultHttpClient();
+            HttpPost httpPost= new HttpPost(url);
+            String json=mrl.toJSONString();
+            StringEntity se= new StringEntity(json);
+            httpPost.setEntity(se);
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            HttpResponse httpResponse = client.execute(httpPost);
+            is=httpResponse.getEntity().getContent();
+            if(is!=null){
+                result=convertInputStreamToString(is);
+            }
+            else result="ERROR";
+        }
+        catch(Exception e){}
+        return result;
+    }
+    private static String convertInputStreamToString(InputStream inputStream) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
+        String line = "";
+        String result = "";
+        while((line = bufferedReader.readLine()) != null)
+            result += line;
+
+        inputStream.close();
+        return result;
+
+    }
+    class HttpAsyncTask extends AsyncTask<RaterRequest,Void,String> {
+        @Override
+        protected String doInBackground(RaterRequest... params) {
+            String url="https://section-records.herokuapp.com/classify";
+            return POST(url,params[0]);
+        }
+
+        protected void onPostExecute(String str){
+            if(!str.equals("ERROR")) {
+                /*CRIAR ATIVIDADE DE MAPA*/
+                RaterReply rrp = RaterReply.fromJSON(str);
+                Toast.makeText(getBaseContext(), "Preparando Mapa...", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(getBaseContext(), "Erro no Envio/Receçao", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
