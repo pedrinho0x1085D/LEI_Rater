@@ -5,6 +5,7 @@ package android.com.pedrojose.rater.business;
  */
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -417,7 +418,16 @@ public class MyRecord implements Serializable {
     public void setLoad(int load) {
         this.load = load;
     }
-
+    public String simpleTextDateTime(){
+        String res=new String();
+        res+=this.dateTime.get(Calendar.DAY_OF_MONTH);
+        res+=((this.dateTime.get(Calendar.MONTH))+1);
+        res+=this.dateTime.get(Calendar.YEAR)+"_";
+        res+=this.dateTime.get(Calendar.HOUR_OF_DAY);
+        res+=this.dateTime.get(Calendar.MINUTE);
+        res+=this.dateTime.get(Calendar.SECOND);
+        return res;
+    }
     /**
      * @param diffic the diffic to set
      */

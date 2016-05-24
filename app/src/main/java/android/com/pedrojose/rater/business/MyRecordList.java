@@ -68,7 +68,9 @@ public class MyRecordList implements Serializable {
         Gson gson=new Gson();
         return gson.toJson(this);
     }
-
+    public MyRecord getFirstRecord(){
+        return records.get(0);
+    }
     public static MyRecordList fromJSonString(String json) throws Exception {
         Gson gson=new Gson();
         return (MyRecordList) gson.fromJson(json,MyRecordList.class);

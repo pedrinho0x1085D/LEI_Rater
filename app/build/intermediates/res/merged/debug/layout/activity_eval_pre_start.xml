@@ -13,44 +13,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Realizar Query"
-        android:drawableTop="@drawable/eval"
+        android:drawableLeft="@drawable/eval"
+        android:clickable="false"
         android:id="@+id/button24"
-        android:onClick="back2Main"
+        android:onClick="sendQuery"
         android:textSize="20sp"
         android:fontFamily="droid"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button25"
-        android:layout_alignEnd="@+id/button25" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mapa"
-        android:drawableTop="@drawable/location"
-        android:onClick="back2Main"
-        android:textSize="20sp"
-        android:fontFamily="droid"
-        android:id="@+id/button25"
-        android:layout_above="@+id/button26"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button26"
-        android:layout_alignEnd="@+id/button26" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/button26"
+        android:layout_toEndOf="@+id/button26" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voltar"
-        android:drawableTop="@drawable/left"
-        android:onClick="back2Main"
+        android:drawableLeft="@drawable/left"
+        android:onClick="back2Home"
         android:textSize="20sp"
         android:fontFamily="droid"
         android:id="@+id/button26"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,6 +62,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableStart="@drawable/menos"
+        android:onClick="menosCargaEv"
         android:id="@+id/button33"
         android:layout_below="@+id/textView12"
         android:layout_alignParentLeft="true"
@@ -85,66 +73,48 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableStart="@drawable/mais"
+        android:onClick="maisCarga"
         android:id="@+id/button34"
         android:layout_alignBottom="@+id/button33"
         android:layout_toRightOf="@+id/textView11"
         android:layout_toEndOf="@+id/textView11" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/editText7"
-        android:layout_below="@+id/textView24"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/button24"
-        android:layout_toStartOf="@+id/button24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Data"
-        android:id="@+id/textView24"
-        android:layout_below="@+id/button24"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hora"
-        android:id="@+id/textView25"
-        android:layout_below="@+id/editText7"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:ems="10"
-        android:id="@+id/editText8"
-        android:layout_below="@+id/textView25"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText7"
-        android:layout_alignEnd="@+id/editText7" />
-
     <ListView
+        tools:listitem="@android:layout/simple_list_item_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/listView2"
+        android:choiceMode="singleChoice"
+        android:layout_alignTop="@+id/textView11"
         android:layout_alignRight="@+id/button24"
         android:layout_alignEnd="@+id/button24"
-        android:layout_toRightOf="@+id/editText7"
-        android:layout_toEndOf="@+id/editText7"
-        android:layout_below="@+id/button24"
-        android:layout_alignBottom="@+id/editText8"
-        android:choiceMode="singleChoice"
-        tools:listitem="@android:layout/simple_list_item_1" />
+        android:layout_above="@+id/button24"
+        android:layout_toRightOf="@+id/button34"
+        android:layout_toEndOf="@+id/button34" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date"
+        android:drawableTop="@drawable/calendar"
+        android:onClick="openDatePickerDialog"
+        android:id="@+id/button25"
+        android:layout_above="@+id/button35"
+        android:layout_alignRight="@+id/button35"
+        android:layout_alignEnd="@+id/button35"
+        android:layout_marginBottom="46dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Time"
+        android:drawableTop="@drawable/clock"
+        android:onClick="openTimePickerDialog"
+        android:id="@+id/button35"
+        android:layout_alignBottom="@+id/listView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="48dp" />
 
 </RelativeLayout>

@@ -91,13 +91,8 @@ public class PreStartRecording extends AppCompatActivity {
                 if (file.getName().endsWith(".csv")) {
                     MyRecordList mrl = MyRecordList.getRecordsFromCSVFile(file.getAbsolutePath());
                     AsyncTask<MyRecordList,Void,String> task=new HttpAsyncTask().execute(mrl);
-                    try{
-                        String string=task.get();
-                        if(string.equals("ok"))
-                            file.delete();
-                    }catch (Exception e){
 
-                    }
+
                 }
             }
         }
@@ -119,7 +114,7 @@ public class PreStartRecording extends AppCompatActivity {
             if(is!=null){
                 result=convertInputStreamToString(is);
             }
-            else result="Oops! Something went wrong";
+            else result="ERROR";
         }
         catch(Exception e){}
         return result;
@@ -191,15 +186,24 @@ public class PreStartRecording extends AppCompatActivity {
 
     }
     class HttpAsyncTask extends AsyncTask<MyRecordList,Void,String>{
-
+        MyRecordList param;
         @Override
         protected String doInBackground(MyRecordList... params) {
             String url="https://section-records.herokuapp.com/insert";
+            param = params[0];
             return POST(url,params[0]);
         }
 
         protected void onPostExecute(String str){
-            Toast.makeText(getBaseContext(), "Dados Enviados", Toast.LENGTH_SHORT).show();
+            if(!str.equals("ERROR")) {
+                Toast.makeText(getBaseContext(), "Dados Enviados", Toast.LENGTH_SHORT).show();
+                String paramPath = getFilesDir()+ File.separator +"RaterTMPFiles"+File.separator+ "dadosLogging"+ File.separator + param.getFirstRecord().simpleTextDateTime() + param.getFirstRecord().getUsername().replaceAll(" ", "") + ".csv";
+                File f = new File(paramPath);
+                if (f.exists()) f.delete();
+            }
+            else {
+                Toast.makeText(getBaseContext(), "Erro no Envio", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

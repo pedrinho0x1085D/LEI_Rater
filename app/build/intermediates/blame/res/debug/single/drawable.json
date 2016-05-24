@@ -8,12 +8,16 @@
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\running.png"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\exit.png",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\exit.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\clock.png",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\clock.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\left.png",
@@ -162,6 +166,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\calendar.png",
+        "source": "D:\\AndroidStudioProjects\\Rater\\app\\src\\main\\res\\drawable\\calendar.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\Rater\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
