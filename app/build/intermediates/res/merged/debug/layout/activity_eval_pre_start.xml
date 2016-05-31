@@ -84,7 +84,7 @@
         tools:listitem="@android:layout/simple_list_item_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView2"
+        android:id="@+id/listaGPX"
         android:choiceMode="singleChoice"
         android:layout_alignTop="@+id/textView11"
         android:layout_alignRight="@+id/button24"
@@ -112,7 +112,7 @@
         android:drawableTop="@drawable/clock"
         android:onClick="openTimePickerDialog"
         android:id="@+id/button35"
-        android:layout_alignBottom="@+id/listView2"
+        android:layout_alignBottom="@+id/listaGPX"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="48dp" />

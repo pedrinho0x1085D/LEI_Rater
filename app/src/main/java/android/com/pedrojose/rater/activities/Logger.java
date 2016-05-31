@@ -41,16 +41,10 @@ public class Logger extends AppCompatActivity {
         carga.setText(this.carga + "");
     }
 
-    public void updateLabels(double lat, double lon, double al, float currSpeed, int totalDist) {
-        TextView latitude = (TextView) findViewById(R.id.textView17);
-        latitude.setText(lat + "");
-        TextView longitude = (TextView) findViewById(R.id.textView19);
-        longitude.setText(lon + "");
-        TextView altitude = (TextView) findViewById(R.id.textView21);
-        altitude.setText(al + "");
-        TextView totDist = (TextView) findViewById(R.id.textView23);
+    public void updateLabels(float currSpeed, int totalDist) {
+        TextView totDist = (TextView) findViewById(R.id.textView29);
         totDist.setText(totalDist + "");
-        TextView currSpd = (TextView) findViewById(R.id.textView29);
+        TextView currSpd = (TextView) findViewById(R.id.textView23);
         currSpd.setText(currSpeed + "");
     }
 

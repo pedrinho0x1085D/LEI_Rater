@@ -16,12 +16,11 @@
         android:onClick="startLogging"
         android:id="@+id/button27"
         android:drawableTop="@drawable/travel"
-        android:layout_marginBottom="91dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/button29"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/button28"
-        android:layout_toStartOf="@+id/button28" />
+        android:layout_toLeftOf="@+id/button29"
+        android:layout_toStartOf="@+id/button29" />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,22 +31,21 @@
         android:id="@+id/button28"
         android:drawableTop="@drawable/flag"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/radioGroup"
-        android:layout_alignEnd="@+id/radioGroup"
-        android:layout_alignTop="@+id/button27" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/radioGroup"
+        android:layout_alignTop="@+id/button29"
+        android:layout_toRightOf="@+id/radioGroup" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descartar registos e sair"
+        android:text="Sair s/ gravar"
         android:id="@+id/button29"
         android:onClick="discardExit"
-        android:drawableLeft="@drawable/exit"
+        android:drawableTop="@drawable/exit"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/button28"
-        android:layout_toStartOf="@+id/button28" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,9 +62,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Carga (Kg)"
+        android:textAlignment="6"
         android:id="@+id/textView14"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignRight="@+id/button28"
+        android:layout_alignEnd="@+id/button28"
+        android:layout_toRightOf="@+id/textView22"
+        android:layout_toEndOf="@+id/textView22" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -93,13 +95,14 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/button30"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/button28"
-        android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13"
-        android:id="@+id/radioGroup">
+        android:id="@+id/radioGroup"
+        android:layout_below="@+id/textView29"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:layout_above="@+id/button27"
+        android:layout_toLeftOf="@+id/button31"
+        android:layout_toStartOf="@+id/button31">
 
         <RadioButton
             android:layout_width="match_parent"
@@ -136,77 +139,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Latitude"
-        android:id="@+id/textView16"
-        android:layout_below="@+id/textView15"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView17"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_toRightOf="@+id/textView19"
-        android:layout_toEndOf="@+id/textView19" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Longitude"
-        android:id="@+id/textView18"
-        android:layout_below="@+id/textView17"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView19"
-        android:layout_alignBottom="@+id/textView18"
-        android:layout_alignLeft="@+id/textView21"
-        android:layout_alignStart="@+id/textView21" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Altitude"
-        android:id="@+id/textView20"
-        android:layout_below="@+id/textView19"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView21"
-        android:layout_alignBottom="@+id/textView20"
-        android:layout_toRightOf="@+id/textView29"
-        android:layout_toEndOf="@+id/textView29" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Distância Total"
         android:id="@+id/textView22"
-        android:layout_below="@+id/textView29"
-        android:layout_alignRight="@+id/textView18"
-        android:layout_alignEnd="@+id/textView18" />
+        android:layout_alignBottom="@+id/button31"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textView23"
-        android:layout_alignBottom="@+id/textView22"
-        android:layout_toRightOf="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15" />
+        android:layout_above="@+id/textView22"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/textView15"
+        android:layout_alignEnd="@+id/textView15" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -214,17 +161,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Vel. Atual"
         android:id="@+id/textView28"
-        android:layout_below="@+id/textView21"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView23"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textView29"
-        android:layout_alignBottom="@+id/textView28"
-        android:layout_toRightOf="@+id/textView23"
-        android:layout_toEndOf="@+id/textView23" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView22"
+        android:layout_alignRight="@+id/textView22"
+        android:layout_alignEnd="@+id/textView22" />
 
 </RelativeLayout>

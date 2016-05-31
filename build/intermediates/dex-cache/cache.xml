@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\Users\PedroJosé\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient-android\4.3.5.1\eecbb0b998e77629862a13d957d552b3be58fc4e\httpclient-android-4.3.5.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
-        <dex dex="D:\AndroidStudioProjects\Rater\app\build\intermediates\pre-dexed\debug\httpclient-android-4.3.5.1_afb81639c257d52db835de8e1141202d293e1388.jar" />
-    </item>
-
-</items>

@@ -7,19 +7,18 @@ import android.app.TimePickerDialog;
 import android.com.pedrojose.rater.R;
 import android.com.pedrojose.rater.business.GPXInstance;
 import android.com.pedrojose.rater.business.GpxParser;
-import android.com.pedrojose.rater.business.MyRecordList;
 import android.com.pedrojose.rater.business.RaterReply;
 import android.com.pedrojose.rater.business.RaterRequest;
 import android.com.pedrojose.rater.business.TrkPt;
 import android.com.pedrojose.rater.business.User;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -43,14 +42,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 public class EvalPreStart extends AppCompatActivity {
     User u;
     int carga;
     int dia, mes, hora, minuto;
 
-    ListView gpx = (ListView)findViewById(R.id.listView2);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +58,7 @@ public class EvalPreStart extends AppCompatActivity {
         carga=0;
         fillListOfGPXs();
         dia = mes = hora = minuto = -909;
+        Toast.makeText(EvalPreStart.this, "Para realizar avaliações coloque ficheiros na pasta /GPX", Toast.LENGTH_SHORT).show();
     }
     public void enableQButton(boolean vis){
         Button butt = (Button)findViewById(R.id.button24);
@@ -86,7 +85,7 @@ public class EvalPreStart extends AppCompatActivity {
         this.dia = dia;
         this.mes = mes;
         Button setDate = (Button)findViewById(R.id.button25);
-        setDate.setText(dia +"/"+mes);
+        setDate.setText(dia +"/"+mes+1);
         if(isQueryValid()) enableQButton(true);
     }
 
@@ -95,27 +94,26 @@ public class EvalPreStart extends AppCompatActivity {
         cargaV.setText(carga + "");
     }
     public void fillListOfGPXs(){
-        ListView gpx = (ListView)findViewById(R.id.listView2);
-        File folder = new File(pathToGPXFolder());
-        File[] gpxs=folder.listFiles();
-        if(gpxs !=null){
-            if(gpxs.length>0){
-                ArrayList<String> nomesFich = new ArrayList<>();
-                for(File f:gpxs){
-                    nomesFich.add(f.getName());
+        ListView gpx = (ListView)findViewById(R.id.listaGPX);
+        if(!pathToGPXFolder().equals("err")) {
+            File folder = new File(pathToGPXFolder());
+            File[] gpxs = folder.listFiles();
+            if (gpxs != null) {
+                if (gpxs.length > 0) {
+                    ArrayList<String> nomesFich = new ArrayList<>();
+                    for (File f : gpxs) {
+                        nomesFich.add(f.getName());
+                    }
+                    ArrayAdapter<String> readytogo = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nomesFich);
+                    gpx.setAdapter(readytogo);
+
+                } else {
+
                 }
-                ArrayAdapter<String> readytogo= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,nomesFich);
-                gpx.setAdapter(readytogo);
-
-            }
-            else {
-                Toast.makeText(EvalPreStart.this, "Nenhum Ficheiro GPX encontrado.\n Coloque ficheiros GPX na pasta /RaterTMPFiles/GPX", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(EvalPreStart.this, "Erro na procura de ficheiros GPX", Toast.LENGTH_SHORT).show();
             }
         }
-        else {
-            Toast.makeText(EvalPreStart.this, "Erro na procura de ficheiros GPX", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     public void maisCarga(View v){
@@ -130,13 +128,26 @@ public class EvalPreStart extends AppCompatActivity {
             updateCarga();
         }
     }
-    public String pathToGPXFolder(){
-        File folder = new File(getFilesDir()
-                + File.separator +"RaterTMPFiles"+File.separator+ "GPX");
-        boolean var = false;
-        if (!folder.exists())
-            var = folder.mkdir();
-        return folder.getAbsolutePath();
+
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
+    }
+
+    public String pathToGPXFolder() {
+        //Mudar para local acessivel
+        if (isExternalStorageWritable()) {
+            File folder = new File(Environment.getExternalStorageDirectory()
+                    + File.separator + "GPX");
+            boolean var = false;
+            if (!folder.exists())
+                var = folder.mkdir();
+            return folder.toString();
+        }
+        else return "err";
     }
 
     public void openDatePickerDialog(View v){
@@ -203,6 +214,7 @@ public class EvalPreStart extends AppCompatActivity {
     }
 
     public void sendQuery(View view){
+        ListView gpx = (ListView)findViewById(R.id.listaGPX);
         if(gpx.getSelectedItem()== null){
             Toast.makeText(EvalPreStart.this, "Selecione um Ficheiro", Toast.LENGTH_SHORT).show();
         }
@@ -218,7 +230,7 @@ public class EvalPreStart extends AppCompatActivity {
                         GPXInstance inst = new GPXInstance(point.getLat(),point.getLon(), point.getEle());
                         points.add(inst);
                     }
-                    RaterRequest rrq = new RaterRequest(points,carga,u,new GregorianCalendar(2016,mes-1,dia,hora,minuto));
+                    RaterRequest rrq = new RaterRequest(points,carga,u,new GregorianCalendar(2016,mes,dia,hora,minuto));
                     new HttpAsyncTask().execute(rrq);
 
                 }
