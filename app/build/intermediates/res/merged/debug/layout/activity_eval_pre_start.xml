@@ -67,7 +67,8 @@
         android:id="@+id/button33"
         android:layout_below="@+id/textView12"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="77dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -89,9 +90,9 @@
         android:layout_alignTop="@+id/textView11"
         android:layout_alignRight="@+id/button24"
         android:layout_alignEnd="@+id/button24"
-        android:layout_above="@+id/button24"
         android:layout_toRightOf="@+id/button34"
-        android:layout_toEndOf="@+id/button34" />
+        android:layout_toEndOf="@+id/button34"
+        android:layout_alignBottom="@+id/button34" />
 
     <Button
         android:layout_width="wrap_content"
@@ -100,10 +101,9 @@
         android:drawableTop="@drawable/calendar"
         android:onClick="openDatePickerDialog"
         android:id="@+id/button25"
-        android:layout_above="@+id/button35"
-        android:layout_alignRight="@+id/button35"
-        android:layout_alignEnd="@+id/button35"
-        android:layout_marginBottom="46dp" />
+        android:layout_alignBottom="@+id/button35"
+        android:layout_toRightOf="@+id/button34"
+        android:layout_toEndOf="@+id/button34" />
 
     <Button
         android:layout_width="wrap_content"
@@ -112,9 +112,28 @@
         android:drawableTop="@drawable/clock"
         android:onClick="openTimePickerDialog"
         android:id="@+id/button35"
-        android:layout_alignBottom="@+id/listaGPX"
+        android:layout_below="@+id/listaGPX"
+        android:layout_alignRight="@+id/listaGPX"
+        android:layout_alignEnd="@+id/listaGPX"
+        android:layout_marginTop="69dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ficheiro Selecionado: "
+        android:id="@+id/textView16"
+        android:layout_below="@+id/button25"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="48dp" />
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView17"
+        android:layout_below="@+id/textView16"
+        android:layout_toRightOf="@+id/button34"
+        android:layout_toEndOf="@+id/button34" />
 
 </RelativeLayout>

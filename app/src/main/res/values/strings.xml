@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Rater</string>
+    <string name="title_activity_maps">MapFragment</string>
 </resources>

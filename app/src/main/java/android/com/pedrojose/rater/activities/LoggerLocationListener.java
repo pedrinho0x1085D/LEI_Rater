@@ -22,7 +22,7 @@ import java.io.File;
 public class LoggerLocationListener implements LocationListener {
     User user;
     Location starting = null;
-    private final int CalibratingRepetitions = 3;
+    private final int CalibratingRepetitions = 2;
     int calibrating = 0;
     String modal;
     int velocidadeTotal, leituras;

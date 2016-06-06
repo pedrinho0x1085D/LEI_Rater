@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.com.pedrojose.rater.R;
 import android.com.pedrojose.rater.business.GPXInstance;
+import android.com.pedrojose.rater.business.GPXListEner;
 import android.com.pedrojose.rater.business.GpxParser;
 import android.com.pedrojose.rater.business.RaterReply;
 import android.com.pedrojose.rater.business.RaterRequest;
@@ -47,7 +48,7 @@ public class EvalPreStart extends AppCompatActivity {
     User u;
     int carga;
     int dia, mes, hora, minuto;
-
+    String selectedFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class EvalPreStart extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         this.u = (User) b.get("user");
         carga=0;
+        selectedFile = "";
         fillListOfGPXs();
         dia = mes = hora = minuto = -909;
         Toast.makeText(EvalPreStart.this, "Para realizar avaliações coloque ficheiros na pasta /GPX", Toast.LENGTH_SHORT).show();
@@ -71,7 +73,7 @@ public class EvalPreStart extends AppCompatActivity {
         if(mes == -909) flag = false;
         if(hora == -909) flag = false;
         if(minuto== -909) flag = false;
-        return flag;
+        return flag && !selectedFile.isEmpty();
     }
 
     public void setHoraMinuto(int hora,int minuto){
@@ -84,9 +86,16 @@ public class EvalPreStart extends AppCompatActivity {
     public void setDiaMes(int dia,int mes){
         this.dia = dia;
         this.mes = mes;
+        int mesToShow = mes+1;
         Button setDate = (Button)findViewById(R.id.button25);
-        setDate.setText(dia +"/"+mes+1);
+        setDate.setText(dia +"/"+mesToShow);
         if(isQueryValid()) enableQButton(true);
+    }
+
+    public void setSelectedItem (String selectedItem){
+        this.selectedFile = selectedItem;
+        TextView tv = (TextView) findViewById(R.id.textView17);
+        tv.setText(selectedItem);
     }
 
     public void updateCarga(){
@@ -114,6 +123,7 @@ public class EvalPreStart extends AppCompatActivity {
                 Toast.makeText(EvalPreStart.this, "Erro na procura de ficheiros GPX", Toast.LENGTH_SHORT).show();
             }
         }
+        gpx.setOnItemClickListener(new GPXListEner(this));
     }
 
     public void maisCarga(View v){
@@ -214,12 +224,12 @@ public class EvalPreStart extends AppCompatActivity {
     }
 
     public void sendQuery(View view){
-        ListView gpx = (ListView)findViewById(R.id.listaGPX);
-        if(gpx.getSelectedItem()== null){
+
+        if(!isQueryValid()){
             Toast.makeText(EvalPreStart.this, "Selecione um Ficheiro", Toast.LENGTH_SHORT).show();
         }
         else{
-            File GPXToSend = new File(pathToGPXFolder()+gpx.getSelectedItem().toString());
+            File GPXToSend = new File(pathToGPXFolder()+File.separator+selectedFile);
             if (GPXToSend.exists()){
                 try{
                     enableQButton(false);
