@@ -294,6 +294,8 @@ public class EvalPreStart extends AppCompatActivity {
                 RaterReply rrp = RaterReply.fromJSON(str);
                 Toast.makeText(getBaseContext(), "Preparando Mapa...", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getBaseContext(),MapsActivity.class);
+                intent.putExtra("reply",rrp);
+                intent.putExtra("user",u);
                 startActivity(intent);
                 finish();
             }

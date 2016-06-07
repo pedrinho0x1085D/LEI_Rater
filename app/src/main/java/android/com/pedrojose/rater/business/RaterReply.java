@@ -6,13 +6,15 @@
 package android.com.pedrojose.rater.business;
 
 import com.google.gson.Gson;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author PedroJosé
  */
-public class RaterReply {
+public class RaterReply implements Serializable {
 
     ArrayList<ReplyNode> points;
     

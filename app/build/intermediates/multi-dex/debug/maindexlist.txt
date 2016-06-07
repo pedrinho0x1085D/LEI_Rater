@@ -290,7 +290,6 @@ com/google/android/gms/playlog/internal/PlayLoggerContext.class
 android/support/v4/media/VolumeProviderCompat$1.class
 com/google/android/gms/games/internal/experience/ExperienceEvent.class
 com/google/android/gms/internal/zzjw.class
-com/google/android/gms/maps/model/MarkerOptions.class
 com/google/firebase/database/IgnoreExtraProperties.class
 com/google/android/gms/identity/intents/AddressConstants$Themes.class
 android/support/v4/view/OnApplyWindowInsetsListener.class
@@ -431,7 +430,6 @@ android/support/annotation/IntDef.class
 com/google/android/gms/common/GoogleApiAvailability.class
 com/google/android/gms/internal/zzle$zza.class
 com/google/android/gms/internal/zzakh.class
-com/google/android/gms/maps/model/Marker.class
 com/google/android/gms/analytics/internal/zzae.class
 com/google/android/gms/internal/zzbv.class
 com/google/android/gms/ads/internal/client/zzad$zza.class
@@ -524,6 +522,7 @@ android/support/v7/app/ActionBar$Tab.class
 com/google/android/gms/common/api/Scope.class
 com/google/android/gms/ads/internal/client/SearchAdRequestParcel.class
 android/support/v7/app/AppCompatDelegateImplV14.class
+com/google/android/gms/maps/model/Polyline.class
 com/google/android/gms/internal/zzct.class
 com/google/android/gms/maps/GoogleMap$OnMyLocationChangeListener.class
 com/google/android/gms/location/places/PlaceFilter.class
@@ -730,11 +729,13 @@ com/google/android/gms/ads/internal/overlay/zzk.class
 com/google/android/gms/ads/AdRequest.class
 com/google/firebase/iid/zzb$1.class
 com/google/android/gms/ads/internal/formats/zzf.class
+android/com/pedrojose/rater/business/ReplyNode.class
 com/google/android/gms/internal/zzcz.class
 android/support/v4/widget/DrawerLayout.class
 com/google/android/gms/ads/internal/zzu.class
 com/google/android/gms/wearable/DataApi$GetFdForAssetResult.class
 android/com/pedrojose/rater/activities/PreStartRecording$HttpAsyncTask.class
+android/com/pedrojose/rater/business/RaterReply.class
 android/support/v4/view/ViewCompat.class
 android/support/v4/view/WindowInsetsCompat.class
 com/google/android/gms/common/ConnectionResult.class
@@ -834,6 +835,7 @@ com/google/android/gms/common/api/GoogleApiActivity.class
 android/com/pedrojose/rater/activities/EvalPreStart$TimePickerFragment.class
 com/google/android/gms/ads/internal/formats/NativeAdOptionsParcel.class
 com/google/android/gms/internal/zzex.class
+com/google/android/gms/maps/model/LatLngBounds.class
 com/google/ads/mediation/MediationServerParameters$Parameter.class
 com/google/android/gms/internal/zzcn.class
 com/google/android/gms/ads/internal/client/AdSizeParcel.class
@@ -848,6 +850,7 @@ com/google/android/gms/internal/zztd.class
 com/google/android/gms/ads/internal/overlay/zzo.class
 com/google/android/gms/ads/internal/overlay/zzw.class
 com/google/android/gms/internal/zzgz.class
+com/google/android/gms/maps/model/PolylineOptions.class
 android/support/v7/app/AppCompatDelegate$NightMode.class
 com/google/android/gms/ads/internal/util/client/VersionInfoParcel.class
 android/support/v4/view/ViewCompatICS.class
@@ -890,6 +893,7 @@ com/google/gson/annotations/JsonAdapter.class
 org/apache/http/impl/auth/AuthSchemeBaseHC4.class
 com/google/android/gms/wallet/Wallet.class
 android/support/v4/view/ViewCompat$ICSViewCompatImpl.class
+com/google/android/gms/maps/model/LatLngBounds$Builder.class
 android/support/annotation/BinderThread.class
 com/google/firebase/auth/api/model/VerifyAssertionRequest.class
 com/google/android/gms/ads/internal/client/zzj.class
