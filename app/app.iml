@@ -71,6 +71,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/multidex-instrumentation/1.0.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.0.2/jars" />
@@ -120,6 +122,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
@@ -141,6 +144,7 @@
     <orderEntry type="library" exported="" name="firebase-iid-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-vision-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-wallet-9.0.2" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-messaging-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-gcm-9.0.2" level="project" />
@@ -178,6 +182,7 @@
     <orderEntry type="library" exported="" name="play-services-iid-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-23.0.0" level="project" />
+    <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-safetynet-9.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.0.2" level="project" />

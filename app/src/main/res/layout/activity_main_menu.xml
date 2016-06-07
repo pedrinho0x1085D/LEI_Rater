@@ -51,7 +51,6 @@
             android:drawableLeft="@drawable/eval"
             android:text="Avaliação &amp; Mapa"
             android:fontFamily="droid"
-            android:textStyle="bold"
             android:id="@+id/button9"
             android:onClick="eval"
             android:layout_gravity="right|center_vertical"
