@@ -6,11 +6,13 @@
 package android.com.pedrojose.rater.business;
 import com.google.gson.Gson;
 
+import java.io.Serializable;
+
 /**
  *
  * @author PedroJosé
  */
-public class ReplyNode {
+public class ReplyNode implements Serializable {
     private double startLat;
     private double startLon;
     private double endLat;

@@ -3,6 +3,7 @@ package android.com.pedrojose.rater.activities;
 import android.com.pedrojose.rater.R;
 import android.com.pedrojose.rater.business.RaterReply;
 import android.com.pedrojose.rater.business.ReplyNode;
+import android.com.pedrojose.rater.business.SRaterReply;
 import android.com.pedrojose.rater.business.User;
 import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
@@ -23,7 +24,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     User u;
-    RaterReply rrp;
+    SRaterReply rrp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         Bundle b = getIntent().getExtras();
         this.u = (User) b.get("user");
-        this.rrp = (RaterReply)b.get("reply");
+        this.rrp = (SRaterReply)b.get("reply");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -57,15 +58,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             int i = 0;
             LatLngBounds.Builder bounds = new LatLngBounds.Builder();
             for(ReplyNode rn: rrp.getPoints()){
-                /*Bounds for maps.*/
-                bounds.include(new LatLng(rn.getStartLat(),rn.getStartLon()));
-                bounds.include(new LatLng(rn.getEndLat(),rn.getEndLon()));
+                /*Bounds for maps. Not Gonna Happen*/
+
                 /*PolyLines*/
                 mMap.addPolyline(new PolylineOptions().add(new LatLng(rn.getStartLat(),rn.getStartLon()),new LatLng(rn.getEndLat(),rn.getEndLon())).width(5).color(colorFromDif(rn.getDiffic())));
                 i++;
             }
             if(i>0){
-            mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 50));
+
             }
             
         }

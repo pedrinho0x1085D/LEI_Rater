@@ -64,7 +64,6 @@ com/google/android/gms/internal/zzacw.class
 com/google/android/gms/dynamic/zze.class
 android/support/annotation/IdRes.class
 android/support/v7/widget/LinearLayoutCompat$OrientationMode.class
-android/com/pedrojose/rater/business/TrkPt.class
 android/support/v4/content/ContextCompat.class
 android/support/v4/app/TaskStackBuilder.class
 android/support/v4/app/NavUtils.class
@@ -151,7 +150,6 @@ com/google/android/gms/internal/zzgt.class
 com/google/android/gms/common/annotation/KeepName.class
 com/google/android/gms/internal/zzck.class
 android/support/v4/media/MediaBrowserCompat$SubscriptionCallbackApi21.class
-android/com/pedrojose/rater/business/GpxParser.class
 android/support/annotation/StyleableRes.class
 com/google/android/gms/games/social/Social$InviteUpdateResult.class
 com/google/firebase/auth/api/model/StringList.class
@@ -263,6 +261,7 @@ org/apache/http/impl/io/AbstractMessageParserHC4.class
 com/google/android/gms/appinvite/AppInviteInvitation$IntentBuilder$PlatformMode.class
 android/com/pedrojose/rater/activities/EvalPreStart.class
 android/support/v4/media/MediaBrowserCompat$MediaBrowserImpl.class
+android/com/pedrojose/rater/business/SRaterReply.class
 com/google/android/gms/ads/internal/purchase/zze.class
 com/google/android/gms/internal/zzei$zzd.class
 com/google/android/gms/ads/Correlator.class
@@ -294,7 +293,6 @@ com/google/firebase/database/IgnoreExtraProperties.class
 com/google/android/gms/identity/intents/AddressConstants$Themes.class
 android/support/v4/view/OnApplyWindowInsetsListener.class
 com/google/android/gms/location/places/internal/PlaceLocalization.class
-android/com/pedrojose/rater/business/GPXInstance.class
 com/google/android/gms/internal/zzakw.class
 com/google/android/gms/location/internal/zzf.class
 android/support/annotation/ColorRes.class
@@ -716,6 +714,7 @@ android/support/v4/util/SimpleArrayMap.class
 com/google/android/gms/internal/zzcj.class
 android/support/v4/app/Fragment.class
 com/google/android/gms/auth/api/signin/internal/zzi.class
+android/com/pedrojose/rater/business/GPXParser.class
 android/support/v4/view/ViewPager.class
 android/support/v4/app/FragmentManagerImpl$5.class
 com/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable.class
@@ -735,7 +734,6 @@ android/support/v4/widget/DrawerLayout.class
 com/google/android/gms/ads/internal/zzu.class
 com/google/android/gms/wearable/DataApi$GetFdForAssetResult.class
 android/com/pedrojose/rater/activities/PreStartRecording$HttpAsyncTask.class
-android/com/pedrojose/rater/business/RaterReply.class
 android/support/v4/view/ViewCompat.class
 android/support/v4/view/WindowInsetsCompat.class
 com/google/android/gms/common/ConnectionResult.class

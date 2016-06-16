@@ -7,10 +7,10 @@ import android.app.TimePickerDialog;
 import android.com.pedrojose.rater.R;
 import android.com.pedrojose.rater.business.GPXInstance;
 import android.com.pedrojose.rater.business.GPXListEner;
-import android.com.pedrojose.rater.business.GpxParser;
+import android.com.pedrojose.rater.business.GPXParser;
 import android.com.pedrojose.rater.business.RaterReply;
 import android.com.pedrojose.rater.business.RaterRequest;
-import android.com.pedrojose.rater.business.TrkPt;
+import android.com.pedrojose.rater.business.SRaterReply;
 import android.com.pedrojose.rater.business.User;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -233,13 +233,8 @@ public class EvalPreStart extends AppCompatActivity {
             if (GPXToSend.exists()){
                 try{
                     enableQButton(false);
-                    ArrayList<GPXInstance> points= new ArrayList<>();
-                    GpxParser parser = new GpxParser(new FileInputStream(GPXToSend));
-                    TrkPt point = null;
-                    while((point = parser.nextTrkPt()) != null){
-                        GPXInstance inst = new GPXInstance(point.getLat(),point.getLon(), point.getEle());
-                        points.add(inst);
-                    }
+                    ArrayList<GPXInstance> points= new GPXParser(GPXToSend.getAbsolutePath()).parse();
+                    Toast.makeText(EvalPreStart.this, points.size()+" registos lidos", Toast.LENGTH_SHORT).show();
                     RaterRequest rrq = new RaterRequest(points,carga,u,new GregorianCalendar(2016,mes,dia,hora,minuto));
                     new HttpAsyncTask().execute(rrq);
 
@@ -264,6 +259,7 @@ public class EvalPreStart extends AppCompatActivity {
             is=httpResponse.getEntity().getContent();
             if(is!=null){
                 result=convertInputStreamToString(is);
+
             }
             else result="ERROR";
         }
@@ -292,12 +288,10 @@ public class EvalPreStart extends AppCompatActivity {
             if(!str.equals("ERROR")) {
                 /*CRIAR ATIVIDADE DE MAPA*/
                 RaterReply rrp = RaterReply.fromJSON(str);
-                Toast.makeText(getBaseContext(), "Preparando Mapa...", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getBaseContext(),MapsActivity.class);
-                intent.putExtra("reply",rrp);
+                intent.putExtra("reply",new SRaterReply(rrp.getPoints()));
                 intent.putExtra("user",u);
                 startActivity(intent);
-                finish();
             }
             else {
                 Toast.makeText(getBaseContext(), "Erro no Envio/Receçao", Toast.LENGTH_SHORT).show();
