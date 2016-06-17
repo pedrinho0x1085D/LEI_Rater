@@ -289,6 +289,7 @@ com/google/android/gms/playlog/internal/PlayLoggerContext.class
 android/support/v4/media/VolumeProviderCompat$1.class
 com/google/android/gms/games/internal/experience/ExperienceEvent.class
 com/google/android/gms/internal/zzjw.class
+com/google/android/gms/maps/model/MarkerOptions.class
 com/google/firebase/database/IgnoreExtraProperties.class
 com/google/android/gms/identity/intents/AddressConstants$Themes.class
 android/support/v4/view/OnApplyWindowInsetsListener.class
@@ -428,6 +429,7 @@ android/support/annotation/IntDef.class
 com/google/android/gms/common/GoogleApiAvailability.class
 com/google/android/gms/internal/zzle$zza.class
 com/google/android/gms/internal/zzakh.class
+com/google/android/gms/maps/model/Marker.class
 com/google/android/gms/analytics/internal/zzae.class
 com/google/android/gms/internal/zzbv.class
 com/google/android/gms/ads/internal/client/zzad$zza.class

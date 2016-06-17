@@ -55,16 +55,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         if(rrp!=null){
-            int i = 0;
+
             LatLngBounds.Builder bounds = new LatLngBounds.Builder();
             for(ReplyNode rn: rrp.getPoints()){
-                /*Bounds for maps. Not Gonna Happen*/
-
                 /*PolyLines*/
                 mMap.addPolyline(new PolylineOptions().add(new LatLng(rn.getStartLat(),rn.getStartLon()),new LatLng(rn.getEndLat(),rn.getEndLon())).width(5).color(colorFromDif(rn.getDiffic())));
-                i++;
+
             }
-            if(i>0){
+
+            if (rrp.getPoints().size()>0){
+                LatLng startWalk = new LatLng(rrp.getPoints().get(0).getStartLat(),rrp.getPoints().get(0).getStartLon());
+                LatLng endWalk = new LatLng(rrp.getPoints().get(rrp.getPoints().size()-1).getEndLat(),rrp.getPoints().get(rrp.getPoints().size()-1).getEndLon());
+                mMap.addMarker(new MarkerOptions().position(startWalk).title("Início de caminho"));
+                mMap.addMarker(new MarkerOptions().position(endWalk).title("Fim de caminho"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startWalk,15));
 
             }
             
