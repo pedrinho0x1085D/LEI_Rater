@@ -60,6 +60,7 @@ org/apache/http/params/HttpParamsNames.class
 com/google/firebase/provider/FirebaseInitProvider.class
 android/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21.class
 com/google/android/gms/games/snapshot/SnapshotMetadata.class
+com/google/android/gms/maps/model/BitmapDescriptorFactory.class
 com/google/android/gms/internal/zzacw.class
 com/google/android/gms/dynamic/zze.class
 android/support/annotation/IdRes.class
@@ -518,6 +519,7 @@ com/google/android/gms/internal/zzcg$zza.class
 org/apache/http/message/BasicLineParserHC4.class
 com/google/android/gms/ads/internal/overlay/zzn.class
 com/google/android/gms/ads/internal/purchase/zzg.class
+com/google/android/gms/maps/model/BitmapDescriptor.class
 android/support/v7/app/ActionBar$Tab.class
 com/google/android/gms/common/api/Scope.class
 com/google/android/gms/ads/internal/client/SearchAdRequestParcel.class
