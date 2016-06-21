@@ -29,6 +29,7 @@ public class GPXParser {
     public ArrayList<GPXInstance> parse() {
         try {
             ArrayList<GPXInstance> toRet = new ArrayList<>();
+            double dEle;
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fileToParse);
@@ -41,7 +42,9 @@ public class GPXParser {
                 String tLon = eElement.getAttribute("lon");
                 double dLon = Double.parseDouble(tLon);
                 String tEle = eElement.getElementsByTagName("ele").item(0).getTextContent();
-                double dEle = Double.parseDouble(tEle);
+                if(tEle != null){
+                     dEle = Double.parseDouble(tEle);}
+                else dEle = 0;
                 toRet.add(new GPXInstance(dLat, dLon, dEle));
             } 
             return toRet;
