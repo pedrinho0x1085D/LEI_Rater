@@ -10,7 +10,6 @@ import android.com.pedrojose.rater.business.GPXListEner;
 import android.com.pedrojose.rater.business.GPXParser;
 import android.com.pedrojose.rater.business.RaterReply;
 import android.com.pedrojose.rater.business.RaterRequest;
-import android.com.pedrojose.rater.business.SRaterReply;
 import android.com.pedrojose.rater.business.User;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -289,7 +288,7 @@ public class EvalPreStart extends AppCompatActivity {
                 /*CRIAR ATIVIDADE DE MAPA*/
                 RaterReply rrp = RaterReply.fromJSON(str);
                 Intent intent = new Intent(getBaseContext(),MapsActivity.class);
-                intent.putExtra("reply",new SRaterReply(rrp.getPoints()));
+                intent.putExtra("reply",rrp);
                 intent.putExtra("user",u);
                 startActivity(intent);
             }

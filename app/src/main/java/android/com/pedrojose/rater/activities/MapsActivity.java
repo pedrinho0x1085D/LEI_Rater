@@ -4,7 +4,6 @@ import android.Manifest;
 import android.com.pedrojose.rater.R;
 import android.com.pedrojose.rater.business.RaterReply;
 import android.com.pedrojose.rater.business.ReplyNode;
-import android.com.pedrojose.rater.business.SRaterReply;
 import android.com.pedrojose.rater.business.User;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -28,7 +27,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     User u;
-    SRaterReply rrp;
+    RaterReply rrp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         Bundle b = getIntent().getExtras();
         this.u = (User) b.get("user");
-        this.rrp = (SRaterReply)b.get("reply");
+        this.rrp = (RaterReply)b.get("reply");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -60,7 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if(rrp!=null){
 
-            LatLngBounds.Builder bounds = new LatLngBounds.Builder();
+
             for(ReplyNode rn: rrp.getPoints()){
                 /*PolyLines*/
                 mMap.addPolyline(new PolylineOptions().add(new LatLng(rn.getStartLat(),rn.getStartLon()),new LatLng(rn.getEndLat(),rn.getEndLon())).width(5).color(colorFromDif(rn.getDiffic())));

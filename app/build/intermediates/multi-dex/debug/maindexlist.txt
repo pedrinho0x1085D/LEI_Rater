@@ -262,7 +262,6 @@ org/apache/http/impl/io/AbstractMessageParserHC4.class
 com/google/android/gms/appinvite/AppInviteInvitation$IntentBuilder$PlatformMode.class
 android/com/pedrojose/rater/activities/EvalPreStart.class
 android/support/v4/media/MediaBrowserCompat$MediaBrowserImpl.class
-android/com/pedrojose/rater/business/SRaterReply.class
 com/google/android/gms/ads/internal/purchase/zze.class
 com/google/android/gms/internal/zzei$zzd.class
 com/google/android/gms/ads/Correlator.class
@@ -738,6 +737,7 @@ android/support/v4/widget/DrawerLayout.class
 com/google/android/gms/ads/internal/zzu.class
 com/google/android/gms/wearable/DataApi$GetFdForAssetResult.class
 android/com/pedrojose/rater/activities/PreStartRecording$HttpAsyncTask.class
+android/com/pedrojose/rater/business/RaterReply.class
 android/support/v4/view/ViewCompat.class
 android/support/v4/view/WindowInsetsCompat.class
 com/google/android/gms/common/ConnectionResult.class
@@ -837,7 +837,6 @@ com/google/android/gms/common/api/GoogleApiActivity.class
 android/com/pedrojose/rater/activities/EvalPreStart$TimePickerFragment.class
 com/google/android/gms/ads/internal/formats/NativeAdOptionsParcel.class
 com/google/android/gms/internal/zzex.class
-com/google/android/gms/maps/model/LatLngBounds.class
 com/google/ads/mediation/MediationServerParameters$Parameter.class
 com/google/android/gms/internal/zzcn.class
 com/google/android/gms/ads/internal/client/AdSizeParcel.class
@@ -895,7 +894,6 @@ com/google/gson/annotations/JsonAdapter.class
 org/apache/http/impl/auth/AuthSchemeBaseHC4.class
 com/google/android/gms/wallet/Wallet.class
 android/support/v4/view/ViewCompat$ICSViewCompatImpl.class
-com/google/android/gms/maps/model/LatLngBounds$Builder.class
 android/support/annotation/BinderThread.class
 com/google/firebase/auth/api/model/VerifyAssertionRequest.class
 com/google/android/gms/ads/internal/client/zzj.class
